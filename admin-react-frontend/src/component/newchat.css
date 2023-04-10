@@ -1,0 +1,21 @@
+.msg-desc {
+    font-size: 12px;
+}
+
+.msg-right-card {
+    display: flex;
+    width: 50%;
+    align-self: end;
+}
+
+.msg-left-card {
+    width: 50%;
+    display: flex;
+    float: left;
+
+}
+
+.chat {
+    display: flex;
+    flex-direction: column;
+}

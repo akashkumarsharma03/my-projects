@@ -1,0 +1,22 @@
+<div class="m-5"></div>
+<div class="input-group input-group-sm mt-5 p-3">
+    <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" [(ngModel)]="search" name="search" placeholder="search tags">
+    <div class="input-group-prepend">
+        <button class="input-group-text" id="inputGroup-sizing-sm" (click)="searchbar()"><span class="material-symbols-outlined">
+            search
+            </span></button>
+    </div>
+</div>
+<div class="card p-1 bg-secondary">
+    <div id="listContainer">
+        <ul id="myList" class="list-group mb-5"  *ngFor="let list of result" >
+            <li class="list-group-item">
+                <h5 class="card-title">{{list}}</h5>
+            </li>
+           
+        </ul>
+    </div>
+</div>
+<h1 class="d-flex justify-content-center text-light">Blog Category</h1>
+
+<app-saved></app-saved>

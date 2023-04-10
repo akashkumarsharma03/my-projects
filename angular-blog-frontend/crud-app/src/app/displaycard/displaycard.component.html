@@ -1,0 +1,19 @@
+<div class="row justify-content-around">
+  <div class="bg-dark text-light card rounded-lg shadow p-3 m-3 rounded col-4" style="width: 18rem;"
+    [routerLink]="['/blogpage/'+blog._id]" *ngFor="let blog of apidata" (click)="views()">
+    <img class="card-img-top" style="height:150px" src={{blog.Blogdp}} alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title ">{{blog.BlogTitle}}</h5>
+      <hr>
+      <p class="card-text">{{blog.BlogSummary}}</p>
+      <div class="d-flex">
+        <p style="font-size: small;" class="m-2 d-flex align-items-center"><span class="material-symbols-outlined">
+            schedule
+          </span> :- {{fulldate}}</p>
+        <p style="font-size: small;" class="m-2 d-flex align-items-center"><span class="material-symbols-outlined">
+            visibility
+          </span> :- {{counter}}</p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,7 @@
+{
+    "workbench.colorTheme": "Default Dark+ Experimental",
+    "workbench.preferredDarkColorTheme": "Default High Contrast",
+    "workbench.iconTheme": "vs-seti",
+    "terminal.integrated.tabs.defaultColor": "terminal.ansiBlack",
+    "typescript.inlayHints.enumMemberValues.enabled": true
+}

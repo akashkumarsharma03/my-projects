@@ -1,0 +1,15 @@
+#listContainer {
+    width: 50%;
+  }
+  
+  #myList {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  #myList li {
+    padding: 10px;
+    background-color: lightgray;
+    margin-bottom: 10px;
+  }
+  
