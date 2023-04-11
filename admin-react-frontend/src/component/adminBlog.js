@@ -1,7 +1,7 @@
 
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import Form from 'react-bootstrap/Form';
-import ReactQuill from 'react-quill';
+//import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 
 const AdminBlog = () => {
@@ -30,6 +30,23 @@ const AdminBlog = () => {
 
     const handleChange = (event) => {
         setUserData({ ...userData, [event.target.name]: event.target.value });
+
+    }
+
+    const uploadFile = (event) => {
+        debugger
+        let file = event.target.files[0]
+        alert(file.name)
+        const selectedfile = event.target.files;
+        if (selectedfile.length > 0) {
+            const [imageFile] = selectedfile;
+            const fileReader = new FileReader();
+            fileReader.onload = () => {
+                const srcData = fileReader.result;
+                alert(srcData)
+            };
+            fileReader.readAsDataURL(imageFile);
+        }
     }
 
     return (
@@ -44,32 +61,37 @@ const AdminBlog = () => {
                     </Form.Group>
                     <Form.Group className="mb-3" style={fontstyle}>
                         <Form.Label>Blog Category</Form.Label>
-                        <Form.Select id="categorySelect" value={userData.category} name="category"
+                        {/* <Form.Select id="categorySelect" value={userData.category} name="category"
                             onChange={handleChange}>
                             <option value={''}>Select One</option>
                             <option value={'first Category'}> first Category</option>
                             <option value={'second Category'}> second Category</option>
 
-                        </Form.Select>
+                        </Form.Select> */}
+                        <Form.Control value={userData.Category} name="Category"
+                            onChange={handleChange} placeholder="Blog Category" />
                     </Form.Group>
                     <Form.Group className="mb-3" style={fontstyle}>
                         <Form.Label>Blog Tags</Form.Label>
                         <Form.Control value={userData.tags} name="tags"
                             onChange={handleChange} placeholder="Enter Blog Tags" />
                     </Form.Group>
-                    {/* <Form.Group className="mb-3" style={fontstyle}>
-                    <Form.Label>Blog Summary</Form.Label>
-                    <Form.Control placeholder="Blog Summary" />
-                </Form.Group>
+                    <Form.Group className="mb-3" style={fontstyle}>
+                        <Form.Label>Blog Summary</Form.Label>
+                        <Form.Control value={userData.Summary} name="Summary"
+                            onChange={handleChange} placeholder="Blog Summary" />
+                    </Form.Group>
 
-                <Form.Group className="mb-3" style={fontstyle}>
-                    <Form.Label>Blog photo</Form.Label>
-                    <Form.Control placeholder="input" type="file" />
-                </Form.Group>
-                <Form.Group className="mb-3" style={fontstyle}>
-                    <Form.Label>Blog Description</Form.Label>
-                    <Form.Control as="textarea" style={scroll} rows={12} placeholder="Blog Description" />
-                </Form.Group> */}
+                    <Form.Group className="mb-3" style={fontstyle}>
+                        <Form.Label>Blog photo</Form.Label>
+                        <Form.Control value={userData.photo} name="photo"
+                            onChange={uploadFile} placeholder="input" type="file" />
+                    </Form.Group>
+                    <Form.Group className="mb-3" style={fontstyle}>
+                        <Form.Label>Blog Description</Form.Label>
+                        <Form.Control value={userData.Description} name="Description"
+                            onChange={handleChange} as="textarea" style={scroll} rows={12} placeholder="Blog Description" />
+                    </Form.Group>
                     {/* <ReactQuill theme="snow" className="bg-light text-dark w-5"
                     modules={{
                         toolbar: {
@@ -88,7 +110,7 @@ const AdminBlog = () => {
                     placeholder="Add a description of your event" /> */}
 
                     <Form.Group>
-                        <button type="submit" ClassName="input-group-text shadow-sm btn-primary btn text-white "
+                        <button type="submit" className="input-group-text shadow-sm btn-primary btn text-white "
                             id="inputGroup-sizing-sm" style={{ marginTop: "10px" }}>send</button>
                     </Form.Group>
                 </Form>
