@@ -8,6 +8,9 @@ const AdminBlog = () => {
     let fontstyle = {
         color: "white"
     }
+    let scroll = {
+        overflowY: "scroll",
+    }
 
 
     return (
@@ -38,8 +41,9 @@ const AdminBlog = () => {
                 </Form.Group>
                 <Form.Group className="mb-3" style={fontstyle}>
                     <Form.Label>Blog Description</Form.Label>
+                    <Form.Control as="textarea" style={scroll} rows={12} placeholder="Blog Description" />
                 </Form.Group>
-                <ReactQuill theme="snow" className="bg-light text-dark w-5"
+                {/* <ReactQuill theme="snow" className="bg-light text-dark w-5"
                     modules={{
                         toolbar: {
                             container: [
@@ -54,7 +58,8 @@ const AdminBlog = () => {
 
                         },
                     }}
-                    placeholder="Add a description of your event" />
+                    placeholder="Add a description of your event" /> */}
+                    
                 <Form.Group>
                     <button ClassName="input-group-text shadow-sm btn-primary btn text-white "
                         id="inputGroup-sizing-sm" style={{ marginTop: "10px" }}>send</button>

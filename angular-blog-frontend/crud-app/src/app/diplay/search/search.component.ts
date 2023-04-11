@@ -26,12 +26,7 @@ export class SearchComponent implements OnInit {
 
   searchbar() {
     debugger
-    var tagArray;
     const searchArray = this.search.split(" ");
-
-  
-    debugger
-    this.result =null;
     for (let i = 0; i < searchArray.length; i++) {
       this.result = this.result.concat(this.apidata.filter((blog:any) => blog.tags.includes(searchArray[i])));
     }

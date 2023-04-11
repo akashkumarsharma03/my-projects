@@ -1,11 +1,10 @@
-
 <div style="background-color: rgb(3, 48, 73); display: flexbox; justify-content: center; color: white;">
     <div class="right-section" style="margin-bottom:100px; overflow-y: scroll; height: 100vh; ">
         <div class="message mCustomScrollbar text-light">
             <ul class="p-3" style="display: flex; flex-direction: column;">
                 <div class="bg-danger d-flex m-2" style="width: 50%; font-size: 12px;">
                     <li class="msg-left p-2">
-                        username1
+                       <strong>Admin</strong>
                         <div class="msg-desc">
                             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                             tempor incididunt ut labore et dolore magna aliqua.chat1
@@ -15,9 +14,9 @@
                 </div>
                 <div class="bg-primary d-flex m-2" style="width: 50%; font-size: 12px;align-self:end;">
                     <li class="msg-right p-2">
-                        username2
+                        <strong>username</strong>
                         <div class="msg-desc">
-            {{this.msg}}
+                            {{this.msg | json}}
                         </div>
                         <small>05:25 am</small>
                     </li>
@@ -26,14 +25,17 @@
         </div>
     </div>
 </div>
-<form [formGroup]="chatform" (ngSubmit)="onSubmit()">
-<div class="input-group input-group-sm fixed-bottom row" style="margin-bottom: 70px; margin-left: 1px; margin-right: 5px;">
-    <input type="text" class="form-control col-8 " aria-label="Sizing example input"
-        aria-describedby="inputGroup-sizing-sm" placeholder="type here ...." formControlName="usermsg">
-    <button class="input-group-text shadow-sm btn-secondary btn text-white" style="width: 15%;"
-        id="inputGroup-sizing-sm"><span class="material-symbols-outlined">
-            send
-        </span></button>
-    <input type="file" class="input-group-text btn-outline-secondary col-4 " id="inputGroupFile04" style="width: 100px; margin-right: 0px;">
-</div>
+<form [formGroup]="chatform" (ngSubmit)="onSubmit($event)">
+    <div class="input-group input-group-sm fixed-bottom row"
+        style="margin-bottom: 70px; margin-left: 1px; margin-right: 5px;">
+        <input type="text" class="form-control col-8 " aria-label="Sizing example input"
+            aria-describedby="inputGroup-sizing-sm" placeholder="type here ...." formControlName="usermsg">
+        <input type="file" (change)="this.onFilechange($event)" class="input-group-text btn-outline-secondary col-4 "
+            id="inputGroupFile04" style="width: 100px; margin-right: 0px;">
+        <button class="input-group-text shadow-sm btn-secondary btn text-white" style="width: 15%;"
+            id="inputGroup-sizing-sm"><span class="material-symbols-outlined">
+                send
+            </span>
+        </button>
+    </div>
 </form>

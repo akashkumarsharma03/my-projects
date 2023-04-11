@@ -4,9 +4,9 @@
         -webkit-filter: blur(8px)" src={{apidata.Blogdp}} alt="Card image">
         <div class="card-img-overlay text-light d-flex justify-content-center flex-column align-items-center"
             style="text-shadow: 5px 10px 15px black;">
-            <h1 class="card-title">{{apidata.BlogTitle}}</h1>
+            <h1 class="card-title" style="text-align: center;">{{apidata.BlogTitle}}</h1>
             <hr>
-            <h4 class="card-text">{{apidata.BlogSummary}}</h4>
+            <h4 class="card-text" style="text-align: center;">{{apidata.BlogSummary}}</h4>
             <small style="font-size: small;">uploaded on : {{fulldate}}</small>
         </div>
     </div>
@@ -117,8 +117,7 @@
     <div id="listContainer w-100">
         <ul id="myList" class="list-group mb-5 ">
             <li class="list-group-item m-1" routerLink="/blogpage">
-                <h4 class="card-title">{{apidata.BlogTitle}}</h4>
-                <p>{{apidata.BlogSummary}}</p>
+                <p class="card-title">{{apidata.BlogTitle}}</p>
             </li>
         </ul>
     </div>

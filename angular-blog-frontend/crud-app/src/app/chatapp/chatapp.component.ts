@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { UploadService } from "../upload.service";
 import { FormBuilder } from '@angular/forms';
 
 
@@ -9,6 +9,7 @@ import { FormBuilder } from '@angular/forms';
   styleUrls: ['./chatapp.component.css']
 })
 export class ChatappComponent implements OnInit {
+  file:  File | any = null;
 
   chatform = this.formBuilder.group({
     usermsg: '',
@@ -16,16 +17,33 @@ export class ChatappComponent implements OnInit {
 
   chatInput: any
   chat: any;
-  msg:any
-  constructor( private formBuilder: FormBuilder,
-    ) { }
+  msg: any
+  constructor(private formBuilder: FormBuilder, private uploadService: UploadService
+
+  ) { }
 
   ngOnInit(): void {
   }
 
-  onSubmit() {
+  onSubmit(event: any) {
     debugger
-    this.msg= this.chatform.value
-    console.log(this.msg.usermsg)
+    event.preventDefault();
+    this.msg = this.chatform.value.usermsg + " File uploaded: " + this.file.name ;
+  }
+
+  onFilechange(event: any) {
+    console.log(event.target.files[0])
+    this.file = event.target.files[0]
+  }
+
+  upload() {
+    if (this.file) {
+      // this.uploadService.uploadfile(this.file).subscribe(resp => {
+        alert("Uploaded")
+      // })
+    } else {
+      alert("Please select a file first")
+    }
   }
 }
+

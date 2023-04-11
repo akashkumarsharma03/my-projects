@@ -7,15 +7,19 @@
             </span></button>
     </div>
 </div>
-<div class="card p-1 bg-secondary">
+<div class="p-3">
+<div class="card">
     <div id="listContainer">
-        <ul id="myList" class="list-group mb-5"  *ngFor="let list of result" >
-            <li class="list-group-item">
-                <h5 class="card-title">{{list}}</h5>
+        <ul id="myList" class="list-group" *ngFor="let list of result" >
+            <li class="list-group-item" style="background: rgb(238,174,202);
+        background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);">
+                <h5 class="card-title">{{list.BlogTitle}}</h5>
+                <p class="card-title">{{list.BlogSummary}}</p>
             </li>
            
         </ul>
     </div>
+</div>
 </div>
 <h1 class="d-flex justify-content-center text-light">Blog Category</h1>
 

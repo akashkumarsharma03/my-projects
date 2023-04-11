@@ -3,9 +3,9 @@
     [routerLink]="['/blogpage/'+blog._id]" *ngFor="let blog of apidata" (click)="views()">
     <img class="card-img-top" style="height:150px" src={{blog.Blogdp}} alt="Card image cap">
     <div class="card-body">
-      <h5 class="card-title ">{{blog.BlogTitle}}</h5>
+      <strong class="card-title " style="text-align: center;">{{blog.BlogTitle}}</strong>
       <hr>
-      <p class="card-text">{{blog.BlogSummary}}</p>
+      <p class="card-text" >{{blog.BlogSummary}}</p>
       <div class="d-flex">
         <p style="font-size: small;" class="m-2 d-flex align-items-center"><span class="material-symbols-outlined">
             schedule
