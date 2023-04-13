@@ -17,6 +17,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { AuthenticationComponent } from './authentication/authentication.component';
 import { StoreComponent } from './store/store.component';
 import { TodoComponent } from './todo/todo.component';
+import { NopageComponent } from './nopage/nopage.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { TodoComponent } from './todo/todo.component';
     AuthenticationComponent,
     StoreComponent,
     TodoComponent,
+    NopageComponent,
     
   ],
   imports: [

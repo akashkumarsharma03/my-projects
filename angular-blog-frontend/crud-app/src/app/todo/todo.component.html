@@ -1,12 +1,14 @@
-<div class="d-flex"><input class="form-control col-md-12" style="width: 50%;"><button class="btn btn-primary" type="submit"><span
+<div class="d-flex"><input class="form-control col-md-12" style="width: 80%;"  #newHero
+    (keyup.enter)="addHero(newHero.value)"
+    (blur)="addHero(newHero.value); newHero.value='' "><button  (click)="addHero(newHero.value)" class="btn btn-primary" type="submit"><span
             class="material-symbols-outlined">
             add
         </span></button>
 </div>
-<ul class="list-group" style="margin-top: 20px; margin-bottom: 20px;">
+<ul class="list-group" style="margin-top: 20px; margin-bottom: 20px;" *ngFor="let hero of heroes">
     <div class="d-flex">
-        <li class="list-group-item bg-secondary">goal number 1</li><button class="btn btn-success"
-            style="width: 50px;"><span class="material-symbols-outlined">
+        <li class="list-group-item bg-secondary" style="width: 60%;">{{hero}}</li><button class="btn btn-success"
+            style="width: 50px; margin-left: 5px; margin-right: 5px;"><span class="material-symbols-outlined">
                 done
             </span></button><button class="btn btn-danger" style="width: 50px;"><span class="material-symbols-outlined">
                 close

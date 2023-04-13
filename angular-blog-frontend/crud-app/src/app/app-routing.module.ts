@@ -9,6 +9,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { AuthenticationComponent } from './authentication/authentication.component';
 import { TodoComponent } from './todo/todo.component';
 import { StoreComponent } from './store/store.component';
+import { NopageComponent } from './nopage/nopage.component';
 
 
 
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'profile', component: ProfileComponent },
   { path: 'auth', component: AuthenticationComponent },
   { path: 'store', component: StoreComponent },
+  { path: '**',  pathMatch: 'full', component: NopageComponent },
 
 ];
 
