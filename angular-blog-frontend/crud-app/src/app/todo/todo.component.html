@@ -1,17 +1,20 @@
-<div class="d-flex"><input class="form-control col-md-12" style="width: 80%;"  #newHero
-    (keyup.enter)="addHero(newHero.value)"
-    (blur)="addHero(newHero.value); newHero.value='' "><button  (click)="addHero(newHero.value)" class="btn btn-primary" type="submit"><span
-            class="material-symbols-outlined">
+<div class="d-flex"><input class="form-control col-md-12" style="width: 80%;" #newtask
+        (keyup.enter)="addtask(newtask.value)" (blur)="addtask(newtask.value); newtask.value='' ">
+    <button (click)="addtask(newtask.value)" class="btn btn-primary" type="submit">
+        <span class="material-symbols-outlined">
             add
         </span></button>
 </div>
-<ul class="list-group" style="margin-top: 20px; margin-bottom: 20px;" *ngFor="let hero of heroes">
+<ul class="list-group" style="margin-top: 20px; margin-bottom: 20px;" *ngFor="let todo of tasks;  let i = index">
     <div class="d-flex">
-        <li class="list-group-item bg-secondary" style="width: 60%;">{{hero}}</li><button class="btn btn-success"
-            style="width: 50px; margin-left: 5px; margin-right: 5px;"><span class="material-symbols-outlined">
-                done
-            </span></button><button class="btn btn-danger" style="width: 50px;"><span class="material-symbols-outlined">
+        <div class="form-check form-switch" (click)="done(i)" >
+            <input class="form-check-input" type="checkbox" id="{{i}}" [checked]="value">
+          </div>
+        <li class="list-group-item bg-light" style="width: 60%" [innerHTML]="todo"></li>
+        <button class="btn btn-danger" style="width: 50px;" (click)="delete(i)">
+            <span class="material-symbols-outlined">
                 close
-            </span></button>
+            </span>
+        </button>
     </div>
 </ul>

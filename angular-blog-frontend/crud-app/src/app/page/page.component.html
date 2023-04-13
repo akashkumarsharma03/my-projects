@@ -7,7 +7,7 @@
             ">
             <h1 class="card-title" style="text-align: center;">{{apidata.BlogTitle}}</h1>
             <hr>
-            <h4 class="card-text" style="text-align: center;">{{apidata.BlogSummary}}</h4>
+            <h4 class="card-text p-5" style="text-align: center;">{{apidata.BlogSummary}}</h4>
             <small style="font-size: small;">uploaded on : {{fulldate}}</small>
         </div>
     </div>
@@ -99,16 +99,18 @@
     </div>
     <div class="input-group input-group-sm m-1">
         <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm"
-            placeholder="commnet....">
+            placeholder="commnet...."  #getcomment
+            (keyup.enter)="addcommnet(getcomment.value)"
+            (blur)="addcommnet(getcomment.value); getcomment.value='' ">
         <div class="input-group-prepend">
-            <button class="input-group-text" id="inputGroup-sizing-sm"><span class="material-symbols-outlined">
+            <button class="input-group-text btn btn-secondary" id="inputGroup-sizing-sm"><span class="material-symbols-outlined"  (click)="addcommnet(getcomment.value)">
                     add_comment
                 </span></button>
         </div>
     </div>
-    <div class="card">
-        <div class="card-body bg-secondary text-light" style="border-radius: 5px 10px 15px;">
-            first commnet </div>
+    <div class="p-1" *ngFor="let usercommnet of comments">
+        <div class="card-body bg-secondary text-light" style="border-radius: 5px 10px 15px; padding-left: 10px;">
+         <strong>username:</strong>&nbsp;{{usercommnet}}</div>
 
     </div>
 

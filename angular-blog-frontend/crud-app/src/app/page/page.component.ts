@@ -11,6 +11,7 @@ export class PageComponent implements OnInit {
   fulldate:any
   i:any
   id: any;
+  comments: any=[]
   constructor(private ApiService : ApiService , private route: ActivatedRoute , private apiservice: ApiService) { }
 
   ngOnInit(): void {
@@ -22,7 +23,6 @@ export class PageComponent implements OnInit {
     // }, (error) => {
     //   console.log("An error accessing Service");
     // })
-debugger
     this.id = this.route.snapshot.params['id']
     console.log(this.id)
     this.ApiService.getdatabyid(this.id).subscribe(data=>{
@@ -45,6 +45,12 @@ debugger
       console.log("An error accessing Service");
     })
 
+  }
+
+  addcommnet(getcomment: string) {
+    if (getcomment) {
+      this.comments.push(getcomment);
+    }
   }
 
 }
