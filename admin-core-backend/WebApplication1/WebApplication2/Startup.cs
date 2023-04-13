@@ -13,6 +13,9 @@ using Newtonsoft.Json.Serialization;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using static WebApplication2.models.Class;
+using Microsoft.Extensions.Options;
+using WebApplication2.services;
 
 namespace WebApplication2
 {
@@ -28,6 +31,12 @@ namespace WebApplication2
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+            //mongodb
+            services.Configure<DatabaseSettings>(Configuration.GetSection(nameof(DatabaseSettings)));
+            services.AddSingleton<IDatabaseSettings>(x => x.GetRequiredService<IOptions<DatabaseSettings>>().Value);
+            services.AddSingleton<submitmodelservices>();
+
 
             //enable cors
             services.AddCors(c => {
