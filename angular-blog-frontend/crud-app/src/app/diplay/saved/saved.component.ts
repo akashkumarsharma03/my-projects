@@ -16,12 +16,13 @@ export class SavedComponent implements OnInit {
   isShow: boolean=true;
   showcate: any=[];
   filtercategory:  any=[];
+  val: boolean = true
   constructor(private ApiService: ApiService) { }
 
   ngOnInit(): void {
     this.ApiService.getdata().subscribe((data) => {
       this.apidata = data
-      
+
       for(let i =0; i<=this.apidata.length-1; i++){
         this.filtercategory.unshift(this.apidata[i].BlogCategory)
       }

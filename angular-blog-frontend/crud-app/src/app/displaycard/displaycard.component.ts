@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ApiService } from '../api.service';
+import { HttpClient } from '@angular/common/http';
 
 
 @Component({
@@ -9,9 +10,15 @@ import { ApiService } from '../api.service';
 })
 
 export class DisplaycardComponent implements OnInit {
+
+  @ViewChild('myDOMElement') myDOMElement: ElementRef | undefined;
+
   fulldate: any;
   apidata: any
   counter: any = localStorage.getItem("views") == null ? 0 : localStorage.getItem("views")
+  dt: any;
+  dataDisplay: any;
+  val: boolean = true
 
   constructor(private ApiService: ApiService) { }
 
@@ -21,19 +28,21 @@ export class DisplaycardComponent implements OnInit {
     this.ApiService.getdata().subscribe((data) => {
       this.apidata = data;
 
+      if(this.apidata){
+        this.val = false
+      }
+
     }, (error) => {
       console.log("An error accessing Service");
     })
-  }
 
+  }
   views() {
-  
+
     ++this.counter;
     console.log(this.counter)
     localStorage.setItem("views", this.counter);
   }
 }
-
-
 
 

@@ -2,11 +2,20 @@
 <div class="input-group input-group-sm mt-5 p-3">
     <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" [(ngModel)]="search" name="search" placeholder="search tags">
     <div class="input-group-prepend">
-        <button class="input-group-text" id="inputGroup-sizing-sm" (click)="searchbar()"><span class="material-symbols-outlined">
-            search
-            </span></button>
+        <button class="input-group-text" id="inputGroup-sizing-sm" (click)="searchbar()">🔎</button>
     </div>
 </div>
+<div class="d-flex justify-content-center align-items-center" *ngIf="val" style="height: 100vh; width: 100vw;">
+    <div class="spinner-grow text-dark" role="status">
+      <span class="sr-only"></span>
+    </div>
+    <div class="spinner-grow text-primary m-3" role="status">
+      <span class="sr-only"></span>
+    </div>
+    <div class="spinner-grow text-light" role="status">
+      <span class="sr-only"></span>
+    </div>
+  </div>
 <div class="p-3">
 <div class="card">
     <div id="listContainer">
@@ -22,5 +31,4 @@
 </div>
 </div>
 <h1 class="d-flex justify-content-center text-light">Blog Category</h1>
-
 <app-saved></app-saved>

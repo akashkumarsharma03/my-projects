@@ -13,12 +13,15 @@ export class SearchComponent implements OnInit {
   apidata: any;
   result: any = []
   show: any = []
+  val: boolean =true
   constructor(private ApiService: ApiService) { }
 
   ngOnInit(): void {
     this.ApiService.getdata().subscribe((data) => {
       this.apidata = data;
-
+      if(this.apidata){
+        this.val = false
+      }
     }, (error) => {
       console.log("An error accessing Service");
     })

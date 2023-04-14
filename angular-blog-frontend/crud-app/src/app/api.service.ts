@@ -36,7 +36,6 @@ export class ApiService {
     }
 
     getdatabyid(id:any): Observable<any> {
-        debugger
         return this.http.get(this.apiUrl+"/"+id);
     }
 
