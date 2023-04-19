@@ -1,0 +1,48 @@
+.blink {
+    border-right-style: solid;
+    animation: 1s blink infinity;
+  }
+
+  #textimg{
+    width: 45%;
+    margin-left: 100px;
+    margin-top: 100px;
+  }
+  /* #textdiv{
+
+  } */
+  @keyframes blink {
+    to {
+      opacity: 0;
+    }
+  }
+
+  @media only screen and (max-width:750px) {
+    .row{
+      flex-direction: column;
+    }
+    #textimg{
+      margin-top: 100px;
+      width:75% ;      
+    }
+  }
+
+  @media only screen and (max-width:360px) {
+    .row{
+      flex-direction: column;
+    }
+    #textimg{
+      width:45% ;    
+      padding: 0 !important  
+ 
+    }
+  }
+
+  @media only screen and (max-width:1030px) {
+    .row{
+      flex-direction: column;
+    }
+    /* #textimg{
+          
+    } */
+  }

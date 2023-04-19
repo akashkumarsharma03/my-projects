@@ -18,6 +18,7 @@ import { AuthenticationComponent } from './authentication/authentication.compone
 import { StoreComponent } from './store/store.component';
 import { TodoComponent } from './todo/todo.component';
 import { NopageComponent } from './nopage/nopage.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [

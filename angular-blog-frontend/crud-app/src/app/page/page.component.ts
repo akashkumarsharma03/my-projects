@@ -1,6 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ApiService } from '../api.service';
 import { ActivatedRoute } from '@angular/router';
+
+declare var require: any;
+
+import * as pdfMake from "pdfmake/build/pdfmake";
+import * as pdfFonts from "pdfmake/build/vfs_fonts";
+const htmlToPdfmake = require("html-to-pdfmake");
+(pdfMake as any).vfs = pdfFonts.pdfMake.vfs;
 
 @Component({
   selector: 'app-page',
@@ -17,7 +24,9 @@ export class PageComponent implements OnInit {
   id: any;
   comments: any = []
   val: boolean = true
-  startOver:boolean = true
+  startOver: boolean = true
+  google: any;
+  transval: any;
   constructor(private ApiService: ApiService, private route: ActivatedRoute, private apiservice: ApiService) { }
 
   ngOnInit(): void {
@@ -28,7 +37,6 @@ export class PageComponent implements OnInit {
 
     this.ApiService.getdatabyid(this.id).subscribe(data => {
       this.apidata = data
-
 
       if (this.apidata) {
         this.val = false
@@ -90,9 +98,56 @@ export class PageComponent implements OnInit {
     this.startOver = !this.startOver
     const speech = this.makeRequest(_element);
     speechSynthesis.cancel();
-    if (this.startOver==true && speech.voice != null) {
+    if (this.startOver == true && speech.voice != null) {
       speechSynthesis.speak(speech);
     }
+  }
+
+  //blog content to pdf
+  async exportPDF(divElement: any, img: any) {
+    debugger
+    var html = htmlToPdfmake((divElement.innerHTML));
+    var logo = htmlToPdfmake('<h1 style:>AkashApp</h1>');
+    var imgSrc = img.currentSrc
+    var imgSrc2 = await this.getBase64ImageFromURL
+    (
+      "https://www.simplilearn.com/ice9/free_resources_article_thumb/what_is_image_Processing.jpg"
+    );
+
+    var documentDefinition = {
+      content: [
+        logo,
+        {
+          image: imgSrc,
+          width: 500,
+          height: 200,
+        },
+        html]
+    };
+    pdfMake.createPdf(documentDefinition).download();
+
+  }
+
+  getBase64ImageFromURL(url: string) {
+    return new Promise((resolve, reject) => {
+      var img = new Image();
+      img.setAttribute("crossOrigin", "anonymous");
+      img.onload = () => {
+        var canvas = document.createElement("canvas");
+        canvas.width = img.width;
+        canvas.height = img.height;
+        var ctx = canvas.getContext("2d")
+        if (ctx != null) {
+          ctx.drawImage(img, 0, 0);
+        }
+        var dataURL = canvas.toDataURL("image/png");
+        resolve(dataURL);
+      };
+      img.onerror = error => {
+        reject(error);
+      };
+      img.src = url;
+    });
   }
 
 }

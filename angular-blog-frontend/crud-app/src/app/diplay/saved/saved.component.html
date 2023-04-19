@@ -10,10 +10,10 @@
     </li>
   </ol>
   <div style="padding-left: 10px; padding-right: 10px;" *ngFor="let list of result">
-    <div class="card" *ngIf="this.isShow">
-      <div id="listContainer">
-        <ul id="myList" class="list-group" *ngFor="let list of result">
-          <li class="list-group-item" style="background: rgb(238,174,202);
+    <div class="card bg-secondary" *ngIf="this.isShow">
+      <div id="listContainer" class="bg-secondary">
+        <ul id="myList" class="list-group bg-secondary" *ngFor="let list of result">
+          <li class="list-group-item m-1" style="background: rgb(238,174,202);
             background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);">
             <h5 class="card-title">{{list.BlogTitle}}</h5>
           </li>
