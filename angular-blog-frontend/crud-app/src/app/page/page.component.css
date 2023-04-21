@@ -25,3 +25,10 @@
   border-radius: 5px 5px 5px 5px;
   height: fit-content;
 }
+.ytpg{
+  border-radius: 30px 30px 30px 30px;
+}
+
+.btn-change{
+  filter: none!important
+}

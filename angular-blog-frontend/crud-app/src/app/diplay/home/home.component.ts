@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit {
   @Input() wordArray: string[] = [
     "Multiple Technology blogs",
     "Awesome Science facts",
-    "Contents, you get addicted"
+    "Addictive contents"
   ];
   @Input() textColor = "white";
   @Input() fontSize = "25px";

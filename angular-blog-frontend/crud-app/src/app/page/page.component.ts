@@ -6,6 +6,7 @@ declare var require: any;
 
 import * as pdfMake from "pdfmake/build/pdfmake";
 import * as pdfFonts from "pdfmake/build/vfs_fonts";
+import { filter } from 'rxjs';
 const htmlToPdfmake = require("html-to-pdfmake");
 (pdfMake as any).vfs = pdfFonts.pdfMake.vfs;
 
@@ -18,6 +19,7 @@ export class PageComponent implements OnInit {
 
   private voices: SpeechSynthesisVoice[] = [];
 
+  ytlink : string="N9qZFD1NkhI"
   apidata: any
   fulldate: any
   i: any
@@ -27,6 +29,8 @@ export class PageComponent implements OnInit {
   startOver: boolean = true
   google: any;
   transval: any;
+  bntStyle: string | undefined;
+  display: boolean=true
   constructor(private ApiService: ApiService, private route: ActivatedRoute, private apiservice: ApiService) { }
 
   ngOnInit(): void {
@@ -41,10 +45,16 @@ export class PageComponent implements OnInit {
       if (this.apidata) {
         this.val = false
       }
+
+      if (this.ytlink==null){
+        debugger
+          this.display=false
+          
+      }
     }, (error) => {
       console.log("An error accessing Service");
-    })
-
+    });
+  
 
   }
 
@@ -110,9 +120,9 @@ export class PageComponent implements OnInit {
     var logo = htmlToPdfmake('<h1 style:>AkashApp</h1>');
     var imgSrc = img.currentSrc
     var imgSrc2 = await this.getBase64ImageFromURL
-    (
-      "https://www.simplilearn.com/ice9/free_resources_article_thumb/what_is_image_Processing.jpg"
-    );
+      (
+        "https://www.simplilearn.com/ice9/free_resources_article_thumb/what_is_image_Processing.jpg"
+      );
 
     var documentDefinition = {
       content: [
@@ -150,4 +160,14 @@ export class PageComponent implements OnInit {
     });
   }
 
+  submit() {
+    debugger
+    this.bntStyle = 'btn-change';
+
+  }
+
 }
+function checkyt() {
+  throw new Error('Function not implemented.');
+}
+
