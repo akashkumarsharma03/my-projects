@@ -48,8 +48,7 @@ export class PageComponent implements OnInit {
 
       if (this.ytlink==null){
         debugger
-          this.display=false
-          
+          this.display=false 
       }
     }, (error) => {
       console.log("An error accessing Service");
@@ -121,14 +120,14 @@ export class PageComponent implements OnInit {
     var imgSrc = img.currentSrc
     var imgSrc2 = await this.getBase64ImageFromURL
       (
-        "https://www.simplilearn.com/ice9/free_resources_article_thumb/what_is_image_Processing.jpg"
+        imgSrc
       );
 
     var documentDefinition = {
       content: [
         logo,
         {
-          image: imgSrc,
+          image: imgSrc2,
           width: 500,
           height: 200,
         },

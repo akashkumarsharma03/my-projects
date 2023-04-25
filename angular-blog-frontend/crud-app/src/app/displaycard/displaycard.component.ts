@@ -36,6 +36,9 @@ export class DisplaycardComponent implements OnInit {
       console.log("An error accessing Service");
     })
 
+
+    
+
   }
   views() {
 

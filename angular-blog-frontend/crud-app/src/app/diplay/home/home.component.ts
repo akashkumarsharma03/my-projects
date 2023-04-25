@@ -13,15 +13,18 @@ export class HomeComponent implements OnInit {
   blinkElement!: ElementRef;
 
   @Input() wordArray: string[] = [
-    "Multiple Technology blogs",
-    "Awesome Science facts",
-    "Addictive contents"
+    "BLOGS...",
+    "ARTICLES...",
+    "STORIES...",
+    "NEWSLETTER...",
+    "JOURNALS...",
+    "POSTS...",
   ];
   @Input() textColor = "white";
   @Input() fontSize = "25px";
   @Input() blinkWidth = "5px";
-  @Input() typingSpeedMilliseconds = 100;
-  @Input() deleteSpeedMilliseconds = 50;
+  @Input() typingSpeedMilliseconds = 200;
+  @Input() deleteSpeedMilliseconds = 100;
 
   private i = 0;
 

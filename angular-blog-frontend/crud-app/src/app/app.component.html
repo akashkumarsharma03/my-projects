@@ -3,17 +3,16 @@
     <a class="navbar-brand" href="#">AkashApp</a>
     <div class="d-flex justify-content-center" style="float: right;"><button class="btn btn-outline-danger text-light" [routerLink]="['/auth']" type="button"> login</button>
     </div>
-
+    <button *ngIf="dis" (click)="displaybtn()" class="btn btn-outline-secondary m-1" type="button" routerLink="/search" routerLinkActive="active">🔎</button>
   </nav>
 </div>
 <div class="mt-5"></div>
 <router-outlet></router-outlet>
 <nav class="navbar navbar-dark bg-dark  fixed-bottom justify-content-around" style="min-width: 100%;">
   <form class="form-inline">
-    <button class="btn btn-outline-primary m-1" type="button" routerLink="" routerLinkActive="active">🏡</button>
-    <button class="btn btn-outline-secondary m-1" type="button" routerLink="/search" routerLinkActive="active">🔎</button>
+    <button class="btn btn-outline-primary m-1" (click)="displaybtnagain()" type="button" routerLink="" routerLinkActive="active">🏡</button>
     <button class="btn btn-outline-danger m-1" type="button" routerLink="/chat" routerLinkActive="active">🗨️</button>
-      <button class="btn btn-outline-success m-1" type="button" routerLink="/store" routerLinkActive="active">🛍️</button>
+      <button class="btn btn-outline-success m-1" type="button" routerLink="/store" routerLinkActive="active">🛒</button>
       <button class="btn btn-outline-info m-1" type="button" routerLink="/profile" routerLinkActive="active">😎</button>
   </form>
 </nav>

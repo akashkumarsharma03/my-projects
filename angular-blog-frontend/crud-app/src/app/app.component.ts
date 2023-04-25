@@ -10,11 +10,19 @@ import { ApiService } from './api.service';
 })
 export class AppComponent {
   apidata:any
+  dis: boolean = true;
   constructor(private ApiService: ApiService) { }
 
   ngOnInit() {
+  }
 
+  displaybtn(){
+    debugger
+    this.dis=false
+  }
 
+  displaybtnagain(){
+    this.dis = true
   }
 }
 

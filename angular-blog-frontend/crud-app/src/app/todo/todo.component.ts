@@ -44,6 +44,7 @@ export class TodoComponent implements OnInit {
   }
 
   delete(i: any) {
+    delete this.tasks[i];
 
   }
 
