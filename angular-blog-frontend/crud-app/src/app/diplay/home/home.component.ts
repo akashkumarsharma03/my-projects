@@ -46,6 +46,8 @@ export class HomeComponent implements OnInit {
     this.renderer.setStyle(this.blinkElement.nativeElement, "font-size", this.fontSize);
     this.renderer.setStyle(this.blinkElement.nativeElement, "border-right-width", this.blinkWidth);
     this.renderer.setStyle(this.blinkElement.nativeElement, "border-right-color", "blue");
+    this.renderer.setStyle(this.blinkElement.nativeElement, "color", this.textColor);
+
   }
 
   private typingEffect(): void {

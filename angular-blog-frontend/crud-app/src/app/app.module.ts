@@ -19,6 +19,7 @@ import { StoreComponent } from './store/store.component';
 import { TodoComponent } from './todo/todo.component';
 import { NopageComponent } from './nopage/nopage.component';
 import { TranslateModule } from '@ngx-translate/core';
+import { MyprofileComponent } from './myprofile/myprofile.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { TranslateModule } from '@ngx-translate/core';
     StoreComponent,
     TodoComponent,
     NopageComponent,
+    MyprofileComponent,
     
   ],
   imports: [
