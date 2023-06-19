@@ -20,8 +20,8 @@
 <div class="card">
     <div id="listContainer">
         <ul id="myList" class="list-group" *ngFor="let list of result" >
-            <li class="list-group-item" style="background: rgb(238,174,202);
-        background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);">
+            <li class="list-group-item"  [routerLink]="['/blogpage/'+list._id]" style="background: rgb(238,174,202); cursor: pointer;
+        background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%); cursor: pointer;">
                 <h5 class="card-title">{{list.BlogTitle}}</h5>
                 <p class="card-title">{{list.BlogSummary}}</p>
             </li>

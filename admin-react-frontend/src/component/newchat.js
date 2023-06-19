@@ -14,9 +14,12 @@ const NewChat = () => {
         overflowY: "scroll",
         height: "100vh"
     }
+    let chatbox = {
+        height: "70vh",
+    }
 
     return (
-        <div className="m-5">
+        <div className="m-5" style={chatbox}>
 
             <div className="row">
                 <div className="left-section bg-dark col-sm-4 text-light p-3">

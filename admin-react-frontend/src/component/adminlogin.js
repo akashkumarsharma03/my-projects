@@ -1,26 +1,28 @@
 import React, { useState } from "react";
 import Form from 'react-bootstrap/Form';
+import { Button} from 'react-bootstrap';
+
 
 
 const Adminlogin = () => {
 
-    let fontstyle = {
-        color: "white"
+    let formadmin = {
+        width: "500px",
+        height: "85vh",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center"
+
     }
-    // const [message, setName] = useState('');
 
-    // const handleInput = (event) => {
-    //     setName({ name: event.target.value });
-    // };
-
-    // const handleClick = event => {
-    //     event.preventDefault();
-
-    //     console.log('handleClick', message);
-    // };
+    let fontstyle = {
+        color: "white",
+        width: "300px"
+    }
     return (
-        <>
-            <div className="m-3 p-5 bg-dark">
+        <div className="d-flex justify-content-center">
+            <div className="m-3 p-5 bg-dark" style={formadmin}>
                 <Form.Group className="mb-3" style={fontstyle}>
                     <Form.Label>Admin username</Form.Label>
                     <Form.Control placeholder="admin username" />
@@ -29,12 +31,10 @@ const Adminlogin = () => {
                     <Form.Label>Password</Form.Label>
                     <Form.Control type="password" placeholder="Password" />
                 </Form.Group>
-                <button ClassName="input-group-text shadow-sm btn-primary btn text-white"
-                    id="inputGroup-sizing-sm"><span class="material-symbols-outlined">
-                        send
-                    </span></button>
+                <Button bsStyle="primary">Submit</Button>
+
             </div>
-        </>
+        </div>
     )
 };
 

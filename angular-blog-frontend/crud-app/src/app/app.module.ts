@@ -20,6 +20,7 @@ import { TodoComponent } from './todo/todo.component';
 import { NopageComponent } from './nopage/nopage.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { MyprofileComponent } from './myprofile/myprofile.component';
+import { LivemeetComponent } from './livemeet/livemeet.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { MyprofileComponent } from './myprofile/myprofile.component';
     TodoComponent,
     NopageComponent,
     MyprofileComponent,
+    LivemeetComponent,
     
   ],
   imports: [

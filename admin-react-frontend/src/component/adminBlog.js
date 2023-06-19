@@ -13,13 +13,13 @@ const AdminBlog = () => {
         description: '',
         photoFile: null,
         photo: '',
-        id:''
+        id: ''
     })
-   let url = "http://localhost:5000/api/values"
-    async function funcName(url){
+    let url = "http://localhost:5000/api/values"
+    async function funcName(url) {
         const response = await fetch(url);
         var data = await response.json();
-        }
+    }
     const [isShown, setIsShown] = useState(false);
 
     const handleClick = event => {
@@ -27,7 +27,7 @@ const AdminBlog = () => {
     };
 
     let fontstyle = {
-        color: "white"
+        color: "white",
     }
 
     const handleSubmit = (e) => {
@@ -59,9 +59,9 @@ const AdminBlog = () => {
 
     return (
         <>
-            <div className="m-3 p-5 bg-dark" >
+            <div className="m-3 bg-dark formfill" >
                 <Form onSubmit={handleSubmit}>
-                    <Form.Group className="mb-3" style={fontstyle} >
+                    <Form.Group className="mb-3 blogid" style={fontstyle} >
                         <Form.Label>Blog id</Form.Label>
                         <Form.Control value={userData.id} name="id"
                             onChange={handleChange} placeholder="Blog id" />
@@ -110,17 +110,15 @@ const AdminBlog = () => {
                         placeholder="Add a description of your event"
                         onChange={handleProcedureContentChange}
                     />
-
                     <Form.Group>
                         <button type="submit" className="input-group-text shadow-sm btn-primary btn text-white "
                             id="inputGroup-sizing-sm" style={{ marginTop: "10px" }}>send</button>
                     </Form.Group>
-                    <div className="d-flex justify-content-center"><button onClick={handleClick} className="btn btn-success"><div className="d-flex"><span class="material-symbols-outlined">
-                        preview
-                    </span>preview</div></button>
+                    <div className="d-flex justify-content-center"><button onClick={handleClick} className="btn btn-success"><div className="d-flex">
+                    👇 preview 👀
+                    </div></button>
                     </div>
                     <br />
-
                 </Form>
             </div>
             <div>

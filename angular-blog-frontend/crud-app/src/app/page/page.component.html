@@ -17,11 +17,17 @@
         -webkit-filter: blur(8px)" src={{apidata.Blogdp}} alt="Card image">
             <div class="card-img-overlay text-light d-flex justify-content-center flex-column align-items-center"
                 style="text-shadow: 5px 10px 15px black; -webkit-text-stroke: 0.5px black;"><br>
-                <h3 class="card-title" style="text-align: center;">{{apidata.BlogTitle}}</h3>
-                <h6 class="card-text" style="text-align: center;padding-left: 150px; padding-right: 150px;">
+                <div style="box-shadow: 10px 15px 20px black; background: #ffffff;margin-top: 40px;">
+                <h3 class="card-title" style="text-align: center;  background: -webkit-linear-gradient(rgb(188, 12, 241), rgb(212, 4, 4));
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;">{{apidata.BlogTitle}}</h3>
+                <h6 class="card-text" style="text-align: center;padding-left: 150px; padding-right: 150px;  background: -webkit-linear-gradient(#18c715, #968edd);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;">
                     {{apidata.BlogSummary}}</h6>
-                <div class="d-flex justify-content-center" style="width: 100%;" (click)="submit()">
-                    <iframe class="ytpg" width="70%" height="300" *ngIf="display"
+                </div><br>
+                <div class="d-flex justify-content-center" style="width: 100%;">
+                    <iframe class="ytpg" width="70%" height="400" *ngIf="display"
                         src="https://www.youtube.com/embed/N9qZFD1NkhI" title="YouTube video player" frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         allowfullscreen></iframe>
@@ -63,11 +69,12 @@
             </ul>
         </div>
 
-        <div class="card mt-5 mb-1 d-flex flex-row justify-content-evenly bg-dark" style=" box-shadow: 5px 10px 15px rgb(0, 0, 0)">
-           <button class="bg-dark">❤️</button>
-           <button class="bg-dark text-light">follow</button>
-           <button class="bg-dark">📤</button>
-           <button class="bg-dark">🔖</button>
+        <div class="card mt-5 mb-1 d-flex flex-row justify-content-evenly bg-dark"
+            style=" box-shadow: 5px 10px 15px rgb(0, 0, 0)">
+            <button class="bg-dark">❤️</button>
+            <button class="bg-dark text-light">follow</button>
+            <button class="bg-dark">📤</button>
+            <button class="bg-dark">🔖</button>
         </div>
 
         <div class="input-group input-group-sm m-1">

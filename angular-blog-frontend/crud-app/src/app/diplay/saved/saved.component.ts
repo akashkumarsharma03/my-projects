@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { DiplayComponent } from '../diplay.component';
 import { ApiService } from '../../api.service';
 
@@ -10,40 +10,42 @@ import { ApiService } from '../../api.service';
   styleUrls: ['./saved.component.css']
 })
 export class SavedComponent implements OnInit {
-  apidata: any
+  @ViewChild('div0') div0: ElementRef |undefined ;
+  apidata: any;
+  categoryList : any = []
+  categoryWiseData : any =[]
   result: any=[];
   category: any;
   isShow: boolean=true;
   showcate: any=[];
   filtercategory:  any=[];
-  val: boolean = true
-  constructor(private ApiService: ApiService) { }
+  val: boolean = true;
+  listOfBlog :any={};
+  currentCategory = '';
+  constructor(private ApiService: ApiService) {
+   
+   }
 
   ngOnInit(): void {
+    debugger;
     this.ApiService.getdata().subscribe((data) => {
-      this.apidata = data
-
-      for(let i =0; i<=this.apidata.length-1; i++){
-        this.filtercategory.unshift(this.apidata[i].BlogCategory)
-      }
-      this.showcate = [...new Set(this.filtercategory
-        )]
+      this.apidata = data;
+      this.categoryList = [...new Set(data.map((item:any) => item.BlogCategory))];
+      this.categoryList.forEach((category:any) => {
+        this.categoryWiseData.push({'categoryName' : category , 'data' : this.apidata.filter((t:any)=>t.BlogCategory == category).map((t:any) => t.BlogTitle)});
+      });
+      
     }, (error) => {
       console.log("An error accessing Service");
     })
    
   }
 
-  show(i: any) {
-    debugger
-    this.isShow = !this.isShow
-    this.ApiService.getdata().subscribe((data) => {
-      this.apidata = data
-      this.category = this.apidata[i].BlogCategory
-      this.result = this.apidata.filter((blog: any) => blog.BlogCategory.includes(this.category));
-    } ,(error) => {
-      console.log("An error accessing Service");
-    })
+
+
+  toggleDiv(data:any){
+    this.currentCategory = data.categoryName;
+    console.log(data);
   }
 }
 

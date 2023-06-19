@@ -11,7 +11,7 @@ const User = () => {
                         <button> <i className="fa fa-search"></i> </button>
                     </div><hr/>
                     <div class="col-md-3 border-right">
-                        <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" style={{ width: "20%" }}  src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg" /><span class="font-weight-bold">Edogaru</span><span class="">edogaru@mail.com.my</span><span> </span></div>
+                        <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" style={{ width: "100%" }}  src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg" /><span class="font-weight-bold">Edogaru</span><span class="">edogaru@mail.com.my</span><span> </span></div>
                     </div>
                     <div class="col-md-5 border-right">
                         <div class="p-3 py-5">

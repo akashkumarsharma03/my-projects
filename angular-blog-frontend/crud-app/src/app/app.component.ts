@@ -13,6 +13,7 @@ export class AppComponent {
   constructor(private ApiService: ApiService) { }
 
   ngOnInit() {
+    
   }
   
 }
